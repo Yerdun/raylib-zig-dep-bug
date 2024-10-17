@@ -1,0 +1,13 @@
+.{
+    .name = "raylib-zig-dep-bug",
+    .version = "0.0.0",
+    .minimum_zig_version = "0.12.1",
+
+    .dependencies = .{
+        .raylib = .{
+            .path = "raylib"
+        },
+    },
+
+    .paths = .{ "" },
+}
