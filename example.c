@@ -108,7 +108,10 @@ int main(void)
             DrawText("PRESS SPACE to PAUSE MOVEMENT", 10, GetScreenHeight() - 60, 20, GRAY);
             DrawText("PRESS UP | DOWN to CHANGE TARGET FPS", 10, GetScreenHeight() - 30, 20, GRAY);
             DrawText(TextFormat("TARGET FPS: %i", targetFPS), GetScreenWidth() - 220, 10, 20, LIME);
-            DrawText(TextFormat("CURRENT FPS: %i", (int)(1.0f/deltaTime)), GetScreenWidth() - 220, 40, 20, GREEN);
+            // HACK to display FPS as an "integer":
+            // When compiling this example with `zig build`, the program crashes whenever you cast a float into an int
+            // (tested on Zig v0.12.1)
+            DrawText(TextFormat("CURRENT FPS: %.0f", 1.0f/deltaTime), GetScreenWidth() - 220, 40, 20, GREEN);
 
         EndDrawing();
 
