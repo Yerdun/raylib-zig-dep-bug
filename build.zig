@@ -7,7 +7,7 @@ pub fn build(b: *std.Build) !void {
     const raylib_dep =  b.dependency("raylib", .{
         .target = target,
         .optimize = optimize,
-        .config = @as([]const []const u8, &.{"-DSUPPORT_FILEFORMAT_FLAC", "-DSUPPORT_CUSTOM_FRAME_CONTROL", }),
+        .config = @as([]const u8, "-DSUPPORT_FILEFORMAT_FLAC -DSUPPORT_CUSTOM_FRAME_CONTROL"),
     });
     const raylib = raylib_dep.artifact("raylib");
 
